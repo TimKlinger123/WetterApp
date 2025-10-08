@@ -191,7 +191,7 @@ namespace WetterApp
             }
         }
 
-        internal static List<Wetterwert> GetWetterwerteByMessungId(int messungId)
+        internal static List<Wetterwert> GetWeatherData(int messungId)
         {
             List<Wetterwert> werte = new List<Wetterwert>();
 

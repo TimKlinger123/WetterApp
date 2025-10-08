@@ -150,7 +150,7 @@ namespace WetterApp
             {
                 this.Wetterwerte.Clear();
 
-                foreach (Wetterwert wert in SQLiteDataBaseHelper.GetWetterwerteByMessungId(selected.MessungID))
+                foreach (Wetterwert wert in SQLiteDataBaseHelper.GetWeatherData(selected.MessungID))
                 {
                     this.Wetterwerte.Add(wert);
                 }
@@ -235,6 +235,14 @@ namespace WetterApp
         private void CityComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             City selectedCity = (City)((ComboBox)sender).SelectedItem;
+            TextBlock_CityName.Text = selectedCity.Name;
+            TextBlock_Laditude.Text = selectedCity.Gps.Latitude.ToString();
+            TextBlock_Longitude.Text = selectedCity.Gps.Longitude.ToString();
+        }
+
+        private void CityItem_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            City selectedCity = (City)((TextBlock)sender).DataContext;
             TextBlock_CityName.Text = selectedCity.Name;
             TextBlock_Laditude.Text = selectedCity.Gps.Latitude.ToString();
             TextBlock_Longitude.Text = selectedCity.Gps.Longitude.ToString();

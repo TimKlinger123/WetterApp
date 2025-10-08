@@ -38,7 +38,6 @@ C:\Users\klinger\source\repos\WetterApp\WetterApp\bin\Debug\System.Runtime.Compi
 C:\Users\klinger\source\repos\WetterApp\WetterApp\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\klinger\source\repos\WetterApp\WetterApp\obj\Debug\WetterApp.exe.config
 C:\Users\klinger\Desktop\WetterApp\WetterApp\WetterApp\obj\Debug\WetterApp.csproj.AssemblyReference.cache
-C:\Users\klinger\Desktop\WetterApp\WetterApp\WetterApp\obj\Debug\WetterApp.exe.config
 C:\Users\klinger\Desktop\WetterApp\WetterApp\WetterApp\obj\Debug\MainWindow.g.cs
 C:\Users\klinger\Desktop\WetterApp\WetterApp\WetterApp\obj\Debug\App.g.cs
 C:\Users\klinger\Desktop\WetterApp\WetterApp\WetterApp\obj\Debug\WetterApp_MarkupCompile.cache
@@ -79,3 +78,4 @@ C:\Users\klinger\Desktop\WetterApp\WetterApp\WetterApp\obj\Debug\WetterApp.cspro
 C:\Users\klinger\Desktop\WetterApp\WetterApp\WetterApp\obj\Debug\WetterApp.csproj.Up2Date
 C:\Users\klinger\Desktop\WetterApp\WetterApp\WetterApp\bin\Debug\System.Data.SQLite.xml
 C:\Users\klinger\Desktop\WetterApp\WetterApp\WetterApp\obj\Debug\App.baml
+C:\Users\klinger\Desktop\WetterApp\WetterApp\WetterApp\obj\Debug\WetterApp.exe.config
