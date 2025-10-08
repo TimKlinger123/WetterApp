@@ -5,8 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WetterApp"
         mc:Ignorable="d"
-        Title="Wetter App" Height="450" Width="800"
-        Loaded="Window_Loaded">
+        Title="Wetter App" Height="450" Width="820"
+        Loaded="Window_Loaded"
+        Background="#1E2A38"
+        Foreground="#3A4F66">
+
     <TabControl SelectionChanged="TabControl_SelectionChanged">
         <TabItem Header="Weather requester">
             <Grid>
@@ -21,22 +24,52 @@
                     <RowDefinition Height="60"/>
                 </Grid.RowDefinitions>
                 <StackPanel Orientation="Horizontal"
-                            Grid.Column="1">
+                            Grid.Column="0"
+                            Grid.ColumnSpan="3">
                     <Label Content="Longitude" 
                            VerticalAlignment="Center"/>
                     <TextBox Name="TextBlock_Longitude"                      
                              Text="9,2"                  
                              VerticalAlignment="Center"
                              PreviewTextInput="TextBlock_Longitude_PreviewTextInput"/>
-                </StackPanel>
-                <StackPanel Grid.Column="0" 
-                            Orientation="Horizontal">
                     <Label Content="Laditude" 
                            VerticalAlignment="Center"/>
                     <TextBox Name="TextBlock_Laditude"
                              Text="48,0"
                              VerticalAlignment="Center"
                              PreviewTextInput="TextBlock_Longitude_PreviewTextInput"/>
+                    <Label Content="CityName" 
+                            VerticalAlignment="Center"/>
+                    <TextBox Name="TextBlock_CityName"
+                             Text="Stuttgart, Germany"
+                             Width="130"
+                             VerticalAlignment="Center"/>
+                    <Button Content="Add"
+                            Margin="5,0,0,0"
+                            Height="25"
+                            Click="ButtonAddCity_Click"/>
+                    <ComboBox x:Name="CityComboBox"
+                              Margin="10,0,0,0"
+                              Height="22"
+                              Width="150"
+                              SelectionChanged="CityComboBox_SelectionChanged"
+                              SelectedIndex="1">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Name}" 
+                                               Margin="0,0,5,0" />
+                                    <StackPanel.ContextMenu>
+                                        <ContextMenu>
+                                            <MenuItem Header="Löschen"
+                                                      Click="MenuItemCity_Löschen_Click"/>
+                                        </ContextMenu>
+                                    </StackPanel.ContextMenu>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+
                 </StackPanel>
                 <Button Grid.Column="2" 
                         Height="25"
@@ -51,14 +84,46 @@
                           Margin="10">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Timestamp"
-                                            Binding="{Binding Time}"/>
+                                            Binding="{Binding Time}"
+                                            Width="0.2*"
+                                            ElementStyle="{StaticResource ZentrierterZellenstil}"/>
                         <DataGridTextColumn Header="Temperature in °C"
-                                            Binding="{Binding Temperatur}"/>
+                                            Binding="{Binding Temperatur}"
+                                            Width="0.2*"
+                                            ElementStyle="{StaticResource ZentrierterZellenstil}"/>
                         <DataGridTextColumn Header="Wind speed in km/h"
                                             Binding="{Binding WindSpeed}"
-                                            Width="*"/>
+                                            Width="0.6*"
+                                            ElementStyle="{StaticResource ZentrierterZellenstil}"/>
                     </DataGrid.Columns>
                 </DataGrid>
+                <StackPanel Orientation="Horizontal"
+                            Grid.Row="2"
+                            Grid.ColumnSpan="2">
+                    <Label Content="MinTemp:" 
+                           VerticalAlignment="Center"/>
+                    <TextBlock x:Name="TextBlock_MinTemp"
+                               VerticalAlignment="Center"
+                               Width="35"/>
+                    <Label Content="MaxTemp:" 
+                           Margin="10,0,0,0"
+                           VerticalAlignment="Center"/>
+                    <TextBlock Width="35"
+                               x:Name="TextBlock_MaxTemp"
+                               VerticalAlignment="Center"/>
+                    <Label Content="AverageTemp:" 
+                           Margin="10,0,0,0"
+                           VerticalAlignment="Center"/>
+                    <TextBlock Width="35"
+                               x:Name="TextBlock_AverageTemp"
+                               VerticalAlignment="Center"/>
+                    <Label Content="MaxWindSpeed:" 
+                           Margin="10,0,0,0"
+                           VerticalAlignment="Center"/>
+                    <TextBlock Width="60"
+                               x:Name="TextBlock_MaxWindSpeed"
+                               VerticalAlignment="Center"/>
+                </StackPanel>
                 <Button Content="Save Data"
                         Margin="0,0,10,0"
                         Click="ButtonSaveData_Click"
@@ -86,6 +151,7 @@
                           Grid.Column="0"
                           ItemsSource="{Binding Messungen}"
                           AutoGenerateColumns="False"
+                          CanUserAddRows="False"
                           SelectionChanged="MessungGrid_SelectionChanged">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Datum" Binding="{Binding Datum}" />
@@ -101,7 +167,8 @@
                           Grid.ColumnSpan="2"
                           Grid.Column="1"
                           ItemsSource="{Binding Wetterwerte}"
-                          AutoGenerateColumns="False">
+                          AutoGenerateColumns="False"
+                          CanUserAddRows="False">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Uhrzeit" Binding="{Binding Uhrzeit}" />
                         <DataGridTextColumn Header="Temperatur (°C)" Binding="{Binding Temperatur}" />

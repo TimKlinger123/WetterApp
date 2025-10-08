@@ -78,3 +78,4 @@ C:\Users\klinger\Desktop\WetterApp\WetterApp\WetterApp\obj\Debug\WetterApp.cspro
 C:\Users\klinger\Desktop\WetterApp\WetterApp\WetterApp\obj\Debug\WetterApp.csproj.CoreCompileInputs.cache
 C:\Users\klinger\Desktop\WetterApp\WetterApp\WetterApp\obj\Debug\WetterApp.csproj.Up2Date
 C:\Users\klinger\Desktop\WetterApp\WetterApp\WetterApp\bin\Debug\System.Data.SQLite.xml
+C:\Users\klinger\Desktop\WetterApp\WetterApp\WetterApp\obj\Debug\App.baml

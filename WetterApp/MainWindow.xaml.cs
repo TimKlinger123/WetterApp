@@ -3,9 +3,11 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Net.Http;
 using System.Security.Permissions;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace WetterApp
 {
@@ -25,6 +27,9 @@ namespace WetterApp
         public ObservableCollection<Wetterwert> Wetterwerte { get; set; } = 
             new ObservableCollection<Wetterwert>();
 
+        public ObservableCollection<City> Cities { get; } = 
+            new ObservableCollection<City>();
+
         public WeatherResponse LastRun { get; private set; }
 
         public MainWindow()
@@ -33,6 +38,7 @@ namespace WetterApp
             this.DataGridTemperatures.ItemsSource = temparaturesAndWindSpeed;
             this.MessungGrid.ItemsSource = Messungen;
             this.WetterwertGrid.ItemsSource = Wetterwerte;
+            this.CityComboBox.ItemsSource = Cities;
         }
 
         private async void Button_Click(object sender, RoutedEventArgs e)
@@ -40,7 +46,7 @@ namespace WetterApp
             if (!double.TryParse(this.TextBlock_Longitude.Text, out var longitude) ||
                 !double.TryParse(this.TextBlock_Laditude.Text, out var latitude))
             {
-                MessageBox.Show("Longitude or latitude is not a number.");
+                MessageBox.Show(this, "Longitude or latitude is not a number.");
                 return;
             }
 
@@ -60,23 +66,51 @@ namespace WetterApp
                     this.LastRun.Hourly.latitude = latitude;
                     this.LastRun.Hourly.longitude = longitude;
 
-                    this.temparaturesAndWindSpeed.Clear();
-
-                    for (int i = 0; i < this.LastRun.Hourly.Temperature_2m.Count; i++)
-                    {
-                        temparaturesAndWindSpeed.Add(new WeatherItem
-                        {
-                            Time = this.LastRun.Hourly.Time[i],
-                            Temperatur = this.LastRun.Hourly.Temperature_2m[i].ToString(),
-                            WindSpeed = this.LastRun.Hourly.Wind_speed_10m[i].ToString(),
-                        });
-                    }
+                    ShowWetherData();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"An error occurred while recieving the weather data: {ex.Message}");
+                    MessageBox.Show(this, $"An error occurred while recieving the weather data: {ex.Message}");
                 }
             }
+        }
+
+        private void ShowWetherData()
+        {
+            this.temparaturesAndWindSpeed.Clear();
+            double totalTemp = 0;
+            double minTemp = 5000000;
+            double maxTemp = 0;
+            double averageTemp = 0;
+            double maxWindSpeed = 0;
+
+            for (int i = 0; i < this.LastRun.Hourly.Temperature_2m.Count; i++)
+            {
+                double temp = this.LastRun.Hourly.Temperature_2m[i];
+                double windSpeed = this.LastRun.Hourly.Wind_speed_10m[i];
+
+                temparaturesAndWindSpeed.Add(new WeatherItem
+                {
+                    Time = this.LastRun.Hourly.Time[i],
+                    Temperatur = temp.ToString(),
+                    WindSpeed = windSpeed.ToString(),
+                });
+
+                totalTemp += this.LastRun.Hourly.Temperature_2m[i];
+
+                if (temp > maxTemp)
+                    maxTemp = temp;
+                if (temp < minTemp)
+                    minTemp = temp;
+                if (windSpeed > maxWindSpeed)
+                    maxWindSpeed = windSpeed;
+            }
+
+            averageTemp = totalTemp / this.LastRun.Hourly.Temperature_2m.Count;
+            this.TextBlock_MaxTemp.Text = maxTemp.ToString("F1") + "°C";
+            this.TextBlock_MinTemp.Text = minTemp.ToString("F1") + "°C";
+            this.TextBlock_AverageTemp.Text = averageTemp.ToString("F1") + "°C";
+            this.TextBlock_MaxWindSpeed.Text = maxWindSpeed.ToString("F1") + "km/h";
         }
 
         private void TextBlock_Longitude_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
@@ -91,18 +125,23 @@ namespace WetterApp
         {
             if (this.LastRun == null || this.temparaturesAndWindSpeed.Count == 0)
             {
-                MessageBox.Show("Keine Wetterdaten vorhanden.");
+                MessageBox.Show(this, "Keine Wetterdaten vorhanden.");
                 return;
             }
 
-            SQLiteDataBaseHelper.SaveWeatherData(this.LastRun);
+            SQLiteDataBaseHelper.InsertWetherData(this.LastRun);
 
-            MessageBox.Show("Wetterdaten erfolgreich gespeichert.");
+            MessageBox.Show(this, "Wetterdaten erfolgreich gespeichert.");
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             SQLiteDataBaseHelper.CreateDatabaseIfNotExists();
+            
+            foreach (City city in SQLiteDataBaseHelper.GetAllCities())
+            {
+                this.Cities.Add(city);
+            }
         }
 
         private void MessungGrid_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
@@ -132,7 +171,7 @@ namespace WetterApp
 
             if (this.TabItemPreviousRuns.IsSelected)
             {
-                foreach (Messung messung in SQLiteDataBaseHelper.GetAllMessungen())
+                foreach (Messung messung in SQLiteDataBaseHelper.GetAllMessurements())
                 {
                     this.Messungen.Add(messung);
                 }
@@ -143,17 +182,62 @@ namespace WetterApp
         {
             if (this.MessungGrid.SelectedItem is Messung selected)
             {
-                SQLiteDataBaseHelper.DeleteMessung(selected.MessungID);
+                SQLiteDataBaseHelper.DeleteMessurement(selected.MessungID);
 
                 selectionChanged = true;
                 this.Wetterwerte.Clear();
                 this.Messungen.Clear();
 
-                foreach (Messung messung in SQLiteDataBaseHelper.GetAllMessungen())
+                foreach (Messung messung in SQLiteDataBaseHelper.GetAllMessurements())
                 {
                     this.Messungen.Add(messung);
                 }
             }
+        }
+
+        private void ButtonAddCity_Click(object sender, RoutedEventArgs e)
+        {
+            if (TextBlock_CityName.Text == null ||
+                TextBlock_CityName.Text == string.Empty)
+            {
+                MessageBox.Show(this, "Es muss ein Cityname eingetragen werden um Breiten- " +
+                    "und Längengrad speichern zu können.");
+                return;
+            }
+
+            if (!double.TryParse(this.TextBlock_Longitude.Text, out var longitude) ||
+                !double.TryParse(this.TextBlock_Laditude.Text, out var latitude))
+            {
+                MessageBox.Show(this, "Longitude or latitude is not a number.");
+                return;
+            }
+
+            City city = new City(TextBlock_CityName.Text, latitude, longitude);
+            
+            if (this.Cities.Any(c => c.Name  == city.Name))
+            {
+                MessageBox.Show(this, "Diese Stadt existiert bereits in der Liste.");
+                return;
+            }
+
+            SQLiteDataBaseHelper.InsertCity(city);
+            this.Cities.Add(city);
+            TextBlock_CityName.Text = string.Empty;
+        }
+
+        private void MenuItemCity_Löschen_Click(object sender, RoutedEventArgs e)
+        {
+            City selectedCity = (City)((MenuItem)sender).DataContext;
+            SQLiteDataBaseHelper.DeleteCity(selectedCity);
+            this.Cities.Remove(selectedCity);
+        }
+
+        private void CityComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            City selectedCity = (City)((ComboBox)sender).SelectedItem;
+            TextBlock_CityName.Text = selectedCity.Name;
+            TextBlock_Laditude.Text = selectedCity.Gps.Latitude.ToString();
+            TextBlock_Longitude.Text = selectedCity.Gps.Longitude.ToString();
         }
     }
 

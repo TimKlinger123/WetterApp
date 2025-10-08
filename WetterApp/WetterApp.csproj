@@ -95,6 +95,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="City.cs" />
+    <Compile Include="GpsData.cs" />
     <Compile Include="SQLiteDataBaseHelper.cs" />
     <Compile Include="Wetterwert.cs" />
     <Page Include="MainWindow.xaml">
