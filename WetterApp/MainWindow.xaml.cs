@@ -95,14 +95,14 @@ namespace WetterApp
                 return;
             }
 
-            DataBaseHelper.SaveWeatherData(this.LastRun);
+            SQLiteDataBaseHelper.SaveWeatherData(this.LastRun);
 
             MessageBox.Show("Wetterdaten erfolgreich gespeichert.");
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            DataBaseHelper.CreateDatabaseIfNotExists();
+            SQLiteDataBaseHelper.CreateDatabaseIfNotExists();
         }
 
         private void MessungGrid_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
@@ -111,7 +111,7 @@ namespace WetterApp
             {
                 this.Wetterwerte.Clear();
 
-                foreach (Wetterwert wert in DataBaseHelper.GetWetterwerteByMessungId(selected.MessungID))
+                foreach (Wetterwert wert in SQLiteDataBaseHelper.GetWetterwerteByMessungId(selected.MessungID))
                 {
                     this.Wetterwerte.Add(wert);
                 }
@@ -132,7 +132,7 @@ namespace WetterApp
 
             if (this.TabItemPreviousRuns.IsSelected)
             {
-                foreach (Messung messung in DataBaseHelper.GetAllMessungen())
+                foreach (Messung messung in SQLiteDataBaseHelper.GetAllMessungen())
                 {
                     this.Messungen.Add(messung);
                 }
@@ -143,12 +143,13 @@ namespace WetterApp
         {
             if (this.MessungGrid.SelectedItem is Messung selected)
             {
-                DataBaseHelper.DeleteMessung(selected.MessungID);
+                SQLiteDataBaseHelper.DeleteMessung(selected.MessungID);
 
-                this.Messungen.Clear();
+                selectionChanged = true;
                 this.Wetterwerte.Clear();
+                this.Messungen.Clear();
 
-                foreach (Messung messung in DataBaseHelper.GetAllMessungen())
+                foreach (Messung messung in SQLiteDataBaseHelper.GetAllMessungen())
                 {
                     this.Messungen.Add(messung);
                 }
