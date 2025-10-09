@@ -3,16 +3,19 @@
   "WorkspaceRootPath": "C:\\Users\\klinger\\Desktop\\WetterApp\\WetterApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{27DBFFFD-9DA0-45E6-BE65-9CC63E6F4FFE}|WetterApp\\WetterApp.csproj|c:\\users\\klinger\\desktop\\wetterapp\\wetterapp\\wetterapp\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{27DBFFFD-9DA0-45E6-BE65-9CC63E6F4FFE}|WetterApp\\WetterApp.csproj|solutionrelative:wetterapp\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{27DBFFFD-9DA0-45E6-BE65-9CC63E6F4FFE}|WetterApp\\WetterApp.csproj|C:\\Users\\klinger\\Desktop\\WetterApp\\WetterApp\\wetterapp\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{27DBFFFD-9DA0-45E6-BE65-9CC63E6F4FFE}|WetterApp\\WetterApp.csproj|solutionrelative:wetterapp\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{27DBFFFD-9DA0-45E6-BE65-9CC63E6F4FFE}|WetterApp\\WetterApp.csproj|c:\\users\\klinger\\desktop\\wetterapp\\wetterapp\\wetterapp\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{27DBFFFD-9DA0-45E6-BE65-9CC63E6F4FFE}|WetterApp\\WetterApp.csproj|solutionrelative:wetterapp\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\klinger\\AppData\\Local\\Temp\\.vsdbgsrc\\66dd577f868adf032e9e2dce43272398766aa45b6f86e208f59849d7b8461348\\Visual.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27DBFFFD-9DA0-45E6-BE65-9CC63E6F4FFE}|WetterApp\\WetterApp.csproj|c:\\users\\klinger\\desktop\\wetterapp\\wetterapp\\wetterapp\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{27DBFFFD-9DA0-45E6-BE65-9CC63E6F4FFE}|WetterApp\\WetterApp.csproj|solutionrelative:wetterapp\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +25,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,7 +33,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
+              "Title": "Visual.cs",
+              "DocumentMoniker": "C:\\Users\\klinger\\AppData\\Local\\Temp\\.vsdbgsrc\\66dd577f868adf032e9e2dce43272398766aa45b6f86e208f59849d7b8461348\\Visual.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\66dd577f868adf032e9e2dce43272398766aa45b6f86e208f59849d7b8461348\\Visual.cs",
+              "ToolTip": "C:\\Users\\klinger\\AppData\\Local\\Temp\\.vsdbgsrc\\66dd577f868adf032e9e2dce43272398766aa45b6f86e208f59849d7b8461348\\Visual.cs [Read Only]",
+              "RelativeToolTip": "..\\..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\66dd577f868adf032e9e2dce43272398766aa45b6f86e208f59849d7b8461348\\Visual.cs [Read Only]",
+              "ViewState": "AgIAAFYJAAAAAAAAAAAAwG0JAAACAAAAAQAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-09T15:23:56.615Z",
+              "EditorCaption": " [Read Only]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\klinger\\Desktop\\WetterApp\\WetterApp\\WetterApp\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "WetterApp\\MainWindow.xaml.cs",
@@ -43,7 +59,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "App.xaml",
               "DocumentMoniker": "C:\\Users\\klinger\\Desktop\\WetterApp\\WetterApp\\WetterApp\\App.xaml",
               "RelativeDocumentMoniker": "WetterApp\\App.xaml",
@@ -55,12 +71,12 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\klinger\\Desktop\\WetterApp\\WetterApp\\WetterApp\\MainWindow.xaml",
               "RelativeDocumentMoniker": "WetterApp\\MainWindow.xaml",
-              "ToolTip": "C:\\Users\\klinger\\Desktop\\WetterApp\\WetterApp\\WetterApp\\MainWindow.xaml",
-              "RelativeToolTip": "WetterApp\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\klinger\\Desktop\\WetterApp\\WetterApp\\WetterApp\\MainWindow.xaml*",
+              "RelativeToolTip": "WetterApp\\MainWindow.xaml*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2025-10-09T10:35:36.138Z",
               "EditorCaption": ""
