@@ -8,6 +8,7 @@ using System.Net.Http;
 using System.Security.Permissions;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace WetterApp
 {
@@ -41,7 +42,7 @@ namespace WetterApp
             this.CityComboBox.ItemsSource = Cities;
         }
 
-        private async void Button_Click(object sender, RoutedEventArgs e)
+        private async void ButtonRecieveData_Click(object sender, RoutedEventArgs e)
         {
             if (!double.TryParse(this.TextBlock_Longitude.Text, out var longitude) ||
                 !double.TryParse(this.TextBlock_Laditude.Text, out var latitude))
@@ -51,7 +52,11 @@ namespace WetterApp
             }
 
             string baseUrl = "https://api.open-meteo.com/v1/forecast";
-            string url = $"{baseUrl}?latitude={latitude.ToString().Replace(',', '.')}&longitude={longitude.ToString().Replace(',', '.')}&hourly=temperature_2m,wind_speed_10m";
+            string url = 
+                $"{baseUrl}?" +
+                $"latitude={latitude.ToString().Replace(',', '.')}" +
+                $"&longitude={longitude.ToString().Replace(',', '.')}" +
+                $"&hourly=temperature_2m,wind_speed_10m";
 
             using (HttpClient client = new HttpClient())
             {
@@ -246,6 +251,17 @@ namespace WetterApp
             TextBlock_CityName.Text = selectedCity.Name;
             TextBlock_Laditude.Text = selectedCity.Gps.Latitude.ToString();
             TextBlock_Longitude.Text = selectedCity.Gps.Longitude.ToString();
+        }
+
+        private void ButtonClose_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void TabControl_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (e.ButtonState == MouseButtonState.Pressed)
+                this.DragMove();
         }
     }
 

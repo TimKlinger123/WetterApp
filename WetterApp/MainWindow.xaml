@@ -7,10 +7,12 @@
         mc:Ignorable="d"
         Title="Wetter App" Height="450" Width="820"
         Loaded="Window_Loaded"
+        WindowStyle="None"
         Background="#1E2A38"
         Foreground="#3A4F66">
 
-    <TabControl SelectionChanged="TabControl_SelectionChanged">
+    <TabControl SelectionChanged="TabControl_SelectionChanged"
+                MouseLeftButtonDown="TabControl_MouseLeftButtonDown">
         <TabItem Header="Weather requester">
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -76,7 +78,13 @@
                         Height="25"
                         Width="100"
                         Content="Recieve data"
-                        Click="Button_Click"/>
+                        Click="ButtonRecieveData_Click"/>
+                <Button Content="X"
+                        HorizontalAlignment="Right"
+                        Grid.Column="2"
+                        Height="25"
+                        Width="25"
+                        Click="ButtonClose_Click"/>
                 <DataGrid Name="DataGridTemperatures" 
                           Grid.Row="1"
                           Grid.ColumnSpan="3"
