@@ -3,25 +3,4 @@
 ################################################################################
 
 /.vs/WetterApp
-/WetterApp/bin/Debug/WetterApp.exe
-/WetterApp/bin/Debug/WetterApp.pdb
-/WetterApp/obj/Debug/WetterApp.csproj.AssemblyReference.cache
-/WetterApp/obj/Debug/WetterApp.csproj.CoreCompileInputs.cache
-/WetterApp/obj/Debug/WetterApp.csproj.FileListAbsolute.txt
-/WetterApp/obj/Debug/WetterApp.exe
-/WetterApp/obj/Debug/WetterApp.pdb
-/WetterApp/obj/Debug/WetterApp_MarkupCompile.cache
-/WetterApp/obj/Debug/WetterApp_MarkupCompile.lref
-/WetterApp/obj/Debug/.NETFramework,Version=v4.7.2.AssemblyAttributes.cs
-/WetterApp/obj/Debug/App.g.cs
-/WetterApp/obj/Debug/App.g.i.cs
-/WetterApp/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
-/WetterApp/obj/Debug/MainWindow.baml
-/WetterApp/obj/Debug/MainWindow.g.cs
-/WetterApp/obj/Debug/MainWindow.g.i.cs
-/WetterApp/obj/Debug/WetterApp.csproj.GenerateResource.cache
-/WetterApp/obj/Debug/WetterApp.csproj.Up2Date
-/WetterApp/obj/Debug/WetterApp.exe.config
-/WetterApp/obj/Debug/WetterApp.g.resources
-/WetterApp/obj/Debug/WetterApp.Properties.Resources.resources
-/WetterApp/obj/Debug/WetterApp_MarkupCompile.i.cache
+/WetterApp/obj
