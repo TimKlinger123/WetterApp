@@ -1,12 +1,52 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\klinger\\Desktop\\WetterApp\\WetterApp\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{27DBFFFD-9DA0-45E6-BE65-9CC63E6F4FFE}|WetterApp\\WetterApp.csproj|c:\\users\\klinger\\desktop\\wetterapp\\wetterapp\\wetterapp\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{27DBFFFD-9DA0-45E6-BE65-9CC63E6F4FFE}|WetterApp\\WetterApp.csproj|solutionrelative:wetterapp\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27DBFFFD-9DA0-45E6-BE65-9CC63E6F4FFE}|WetterApp\\WetterApp.csproj|c:\\users\\klinger\\desktop\\wetterapp\\wetterapp\\wetterapp\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{27DBFFFD-9DA0-45E6-BE65-9CC63E6F4FFE}|WetterApp\\WetterApp.csproj|solutionrelative:wetterapp\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "App.xaml",
+              "DocumentMoniker": "C:\\Users\\klinger\\Desktop\\WetterApp\\WetterApp\\WetterApp\\App.xaml",
+              "RelativeDocumentMoniker": "WetterApp\\App.xaml",
+              "ToolTip": "C:\\Users\\klinger\\Desktop\\WetterApp\\WetterApp\\WetterApp\\App.xaml*",
+              "RelativeToolTip": "WetterApp\\App.xaml*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-10-09T10:38:26.764Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\klinger\\Desktop\\WetterApp\\WetterApp\\WetterApp\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "WetterApp\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\klinger\\Desktop\\WetterApp\\WetterApp\\WetterApp\\MainWindow.xaml",
+              "RelativeToolTip": "WetterApp\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-10-09T10:35:36.138Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

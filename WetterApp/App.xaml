@@ -83,6 +83,19 @@
             <Setter Property="HorizontalContentAlignment" Value="Center" />
         </Style>
 
+        <Style TargetType="Thumb" x:Key="DarkThumbStyle">
+            <Setter Property="Background" Value="{StaticResource HighlightBrush}" />
+            <Setter Property="BorderBrush" Value="{StaticResource AccentBrush}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Height" Value="20" />
+        </Style>
+
+        <Style TargetType="ScrollBar">
+            <Setter Property="Background" Value="{StaticResource PrimaryBrush}" />
+            <Setter Property="Foreground" Value="{StaticResource HighlightBrush}" />
+            <Setter Property="Width" Value="10" />
+        </Style>
+
         <Style x:Key="ZentrierterZellenstil" TargetType="TextBlock">
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
