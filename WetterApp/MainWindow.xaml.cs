@@ -22,10 +22,10 @@ namespace WetterApp
         public ObservableCollection<WeatherItem> temparaturesAndWindSpeed = 
             new ObservableCollection<WeatherItem>();
 
-        public ObservableCollection<Messung> Messungen { get; set; } = 
+        public ObservableCollection<Messung> Messungen { get; } = 
             new ObservableCollection<Messung>();
 
-        public ObservableCollection<Wetterwert> Wetterwerte { get; set; } = 
+        public ObservableCollection<Wetterwert> Wetterwerte { get; } = 
             new ObservableCollection<Wetterwert>();
 
         public ObservableCollection<City> Cities { get; } = 
