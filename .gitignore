@@ -1,6 +1,9 @@
-﻿################################################################################
-# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
-################################################################################
-
-/.vs/WetterApp
-/WetterApp/obj
+﻿/.vs
+/WetterApp/obj/
+/WetterApp/bin/Debug/x64/SQLite.Interop.dll
+/WetterApp/bin/Debug/x86/SQLite.Interop.dll
+/WetterApp/bin/Debug/System.Data.SQLite.dll
+/WetterApp/bin/Debug/System.Data.SQLite.xml
+/WetterApp/bin/Debug/WetterApp.exe
+/WetterApp/bin/Debug/WetterApp.pdb
+/WetterApp/bin/Debug/Wetterdaten.db

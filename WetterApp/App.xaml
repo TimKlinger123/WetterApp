@@ -4,6 +4,133 @@
              xmlns:local="clr-namespace:WetterApp"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Color x:Key="PrimaryColor">#1E2A38</Color>
+        <Color x:Key="AccentColor">#3A4F66</Color>
+        <Color x:Key="HighlightColor">#5DADE2</Color>
+        <Color x:Key="TextColor">#FFFFFF</Color>
+
+        <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource PrimaryColor}" />
+        <SolidColorBrush x:Key="AccentBrush" Color="{StaticResource AccentColor}" />
+        <SolidColorBrush x:Key="HighlightBrush" Color="{StaticResource HighlightColor}" />
+        <SolidColorBrush x:Key="TextBrush" Color="{StaticResource TextColor}" />
+
+        <Style TargetType="Label">
+            <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="{StaticResource AccentBrush}" />
+            <Setter Property="Foreground" Value="{StaticResource TextBrush}" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="Padding" Value="8,4" />
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                         CornerRadius="6"
+                         Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="Background" Value="{StaticResource PrimaryBrush}" />
+            <Setter Property="Foreground" Value="{StaticResource TextBrush}" />
+            <Setter Property="BorderBrush" Value="{StaticResource HighlightBrush}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Padding" Value="4" />
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="FontWeight" Value="Normal" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border Background="{TemplateBinding Background}"
+                         BorderBrush="{TemplateBinding BorderBrush}"
+                         BorderThickness="{TemplateBinding BorderThickness}"
+                         CornerRadius="4">
+                            <ScrollViewer x:Name="PART_ContentHost"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="DataGrid">
+            <Setter Property="Background" Value="#1E2A38" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="RowBackground" Value="#3A4F66" />
+            <Setter Property="AlternatingRowBackground" Value="#2C3E50" />
+            <Setter Property="BorderBrush" Value="#5DADE2" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="FontWeight" Value="Normal" />
+            <Setter Property="HeadersVisibility" Value="Column" />
+            <Setter Property="GridLinesVisibility" Value="None" />
+            <Setter Property="Margin" Value="10" />
+        </Style>
+
+        <Style TargetType="DataGridColumnHeader">
+            <Setter Property="Background" Value="#2C3E50" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Padding" Value="6" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+        </Style>
+
+        <Style TargetType="Thumb" x:Key="DarkThumbStyle">
+            <Setter Property="Background" Value="{StaticResource HighlightBrush}" />
+            <Setter Property="BorderBrush" Value="{StaticResource AccentBrush}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Height" Value="20" />
+        </Style>
+
+        <Style TargetType="ScrollBar">
+            <Setter Property="Background" Value="{StaticResource PrimaryBrush}" />
+            <Setter Property="Foreground" Value="{StaticResource HighlightBrush}" />
+            <Setter Property="Width" Value="10" />
+        </Style>
+
+        <Style x:Key="ZentrierterZellenstil" TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+        </Style>
+
+        <Style TargetType="TabControl">
+            <Setter Property="Background" Value="#1E2A38" />
+            <Setter Property="BorderBrush" Value="#5DADE2" />
+            <Setter Property="BorderThickness" Value="1" />
+        </Style>
+
+        <Style TargetType="TabItem">
+            <Setter Property="Background" Value="#2C3E50" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="Padding" Value="8,4" />
+            <Setter Property="Margin" Value="2" />
+            <Setter Property="BorderBrush" Value="#5DADE2" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TabItem">
+                        <Border Background="{TemplateBinding Background}"
+                             BorderBrush="{TemplateBinding BorderBrush}"
+                             BorderThickness="{TemplateBinding BorderThickness}"
+                             CornerRadius="6"
+                             Padding="{TemplateBinding Padding}">
+                            <ContentPresenter ContentSource="Header"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Application.Resources>
 </Application>
